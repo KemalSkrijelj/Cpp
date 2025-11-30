@@ -1,8 +1,56 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 int main(){
+  int randomNum;
+  cout<< "Unesi neki broj: ";
+  cin >> randomNum;
+  for (int i = 1; i < randomNum; i++)
+  {
+    if (i % 2 == 0)
+    {
+      cout<< i << " je paran\n"; 
+    }
+  }
+  
+  /*
+  cout<< "Unesi neki broj: ";
+  int a;
+  cin >> a;
+  if (a %2 ==1)
+  {
+  cout << "Broj je neparan \n";
+  }else if (a % 2 == 0)
+  {
+  cout<<"Broj je paran.";
+  }
+  */
+
+  /*
+  int prva, druga, treca;
+  cout << "Unesite ocene iz predmeta: \n";
+  cin >> prva >> druga >> treca;
+  double prosek= (double)(prva+druga+treca) /3;
+  cout<<setprecision(3)<< "Prosek je: "<< prosek;
+  */
+
+  /*
+  int a,b;
+  cout << "Unesi a: ";
+  cin >> a;
+  cout << "Unesi b: ";
+  cin >> b;
+  int Obim = 2*a+2*b;
+  int P = a*b;
+  double Dijagonala = sqrt(a*a+b*b);
+  cout << "Obim: " << Obim<<endl;
+  cout << "Povrsina: " << P<<endl;
+  cout <<setprecision(3)<< "Dijagonala: " << Dijagonala<<endl;
+  */
+
+  /*
   string ime, prezime;
   int godine;
   cout << "Unesi ime:";
@@ -12,6 +60,7 @@ int main(){
   cout << "Unesi godine: ";
   cin >> godine;
   cout << "Ime i prezime:" << ime << " "<< prezime << "\ngodine: " << godine;
+  */
 
   /*
   int firstNum, secondNum;
