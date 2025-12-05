@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iomanip>
 using namespace std;
-
+/*
 void MinMaxDigit(int n, int &MaxDigit, int &MinDigit){
   MaxDigit = 0;
   MinDigit = 9;
@@ -15,8 +15,24 @@ void MinMaxDigit(int n, int &MaxDigit, int &MinDigit){
     n /= 10;
   }
 }
+*/
 
 int main() {
+  int n;
+  cout << "Enter the num of digits in arr: ";
+  cin >> n;
+  int firstArr[n];
+  for (int i = 0; i < n-1; i++)
+  {
+    cout << "Enter the digits on [" << i << "] position in the arr: ";
+    cin >> firstArr[i];
+  }
+  for (int i = 0; i < n-1; i++)
+  {
+    cout << firstArr[i]<< ", " ;
+  }
+   
+  /*
   int num;
   cout << "Enter num: ";
   cin >> num;
@@ -24,6 +40,8 @@ int main() {
   MinMaxDigit(num, maxNum, minNum);
   cout << "Max num is: " << maxNum << endl;
   cout << "Min num is: " << minNum << endl;
+  */
+
   /*
   int num;
   cout << "Enter num: ";
