@@ -18,6 +18,55 @@ void MinMaxDigit(int n, int &MaxDigit, int &MinDigit){
 */
 
 int main() {
+  int h, w;
+  cout << "Enter the num of the rows: ";
+  cin >> h;
+  cout << "Enter the number of asterisks in last row: ";
+  cin >> w;
+  if (h < 3 || h > 20 || w < 2*h+3 || w > 70)
+  {
+    cout << "Invalid parametars";
+  }else
+  {
+    for (int i = 1; i <= h-1; i++) cout << " ";  //first line
+    for (int i = 1; i < w-2*h+2; i++) cout << "*"; // num of aterisks in first line
+    cout << endl; 
+
+    for (int j = 2; j <= h-1; j++) //loop for line from 2 to h-1
+    {
+      for (int i = 1; i <= h-j; i++) cout << " "; //loop for space to first asterisk
+      cout << "*"; //left asterisk
+      for (int i = 1; i <= w-2*h+2*j; i++) cout << " "; //loop for space beetween aterisks
+      cout << "*" << endl; // right asterisk
+    }
+    
+    for (int i = 1; i <= w; i++) cout << "*"; // loop for last asterisks line
+    cout << endl;
+  }
+  
+  
+  /*
+
+  int h, w;
+  cout << "Enter the total num of rows: ";
+  cin >> h;
+  cout << "Enter the num of asteriks in the last row: ";
+  cin >> w;
+  if (h < 3 || h > 20 || 2*h+3 > w || w > 70)
+  {
+    cout << "Invalid parametars";
+  }else
+  {
+    for (int i=1; i <= h; i++) // 5
+    {
+      for (int j = 1; j <= h-i; j++) cout << " ";  // 5-1=4
+      for (int j = 1; j <= w-2*h+2*i; j++) cout << "*"; // 15-10+2=7
+      cout << endl;
+    }
+  }
+  
+  
+  /*
   int n;
   cout << "Enter the num of digits in arr: ";
   cin >> n;
@@ -31,6 +80,7 @@ int main() {
   {
     cout << firstArr[i]<< ", " ;
   }
+  */
    
   /*
   int num;
