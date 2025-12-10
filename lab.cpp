@@ -14,10 +14,69 @@ void MinMaxDigit(int n, int &MaxDigit, int &MinDigit){
     if(digit < MinDigit) MinDigit = digit;
     n /= 10;
   }
+  }
+  */
+ ////////////////////////////
+/*
+int func(int arr[], int sizeOfArr){
+  int maxAdj = arr[0] - arr[1];
+  for (int i = 1; i < sizeOfArr-1; i++)
+  {
+    int diff = arr[i] - arr[i + 1];
+    if (diff > maxAdj){
+      maxAdj = diff; 
+    }
+  }
+  return maxAdj;
 }
 */
+bool isMonotonically(int arr[], int sizeOfArr){
+  for (int i = 0; i < sizeOfArr-1; i++)
+  {
+    if (arr[i] > arr[i+1])
+    {
+      return false;
+      break;
+    }
+  }
+  return true;
+  
+}
 
 int main() {
+  
+  int n;
+  cout << "Enter the size of arr: ";
+  cin >> n;
+  int array[n];
+  for (int i = 0; i < n; i++)
+  {
+    cin >> array[i];
+  }
+  
+  if (isMonotonically(array, n))
+  {
+    cout << "Arr is monotonically increasing";
+  }else
+  {
+    cout << "Arr isn't monotonically increasing";
+  }
+  
+  
+  /* 1 exercises
+  int n;
+  cout << "Enter the size of arr: ";
+  cin >> n;
+
+  int array[n];
+  for (int i = 0; i < n; i++)
+  {
+    cin >> array[i];
+  }
+  cout << "Max adj is: "<< func(array, n);
+  //////////////////////////////////////
+   
+  /*
   int h, w;
   cout << "Enter the num of the rows: ";
   cin >> h;
@@ -43,6 +102,7 @@ int main() {
     for (int i = 1; i <= w; i++) cout << "*"; // loop for last asterisks line
     cout << endl;
   }
+  */
   
   
   /*
