@@ -30,6 +30,8 @@ int func(int arr[], int sizeOfArr){
   return maxAdj;
 }
 */
+
+/*
 bool isMonotonically(int arr[], int sizeOfArr){
   for (int i = 0; i < sizeOfArr-1; i++)
   {
@@ -40,10 +42,53 @@ bool isMonotonically(int arr[], int sizeOfArr){
     }
   }
   return true;
-  
+}
+  Prime num su brojevi koji su deljivi samo sa 1 i sami sobom. Prvi prime num je 2
+*/
+
+/*
+bool isPrime(int n){
+  for (int i = 2; i < n; i++)
+  {
+    if (n % i == 0) return false;
+  }
+  return true;
+}
+*/
+void func(double arr[], int n, int &NoOfLocMax, int &NoOfLocMin){
+  NoOfLocMax = 0, NoOfLocMin = 0;
+  for (int i = 1; i < n-1; i++)
+  {
+    if (arr[i] > arr[i-1] && arr[i] > arr[i+1]) NoOfLocMax++;
+    if (arr[i] < arr[i-1] && arr[i] < arr[i+1]) NoOfLocMin++;
+  } 
 }
 
 int main() {
+  int max, min;
+  double array[10];
+   cout << "Enter 10 real numbers in arr: \n";
+   for (int i = 0; i < 10; i++)
+   {
+     cin >> array[i];
+   }
+   func(array, 10, max,min);
+   cout << "Maximum: " << max << ", minimum: " << min;
+
+  /*
+  int n;
+  cout << "Enter a num: ";
+  cin >> n;
+  if (isPrime(n))
+  {
+    cout << "Num is prime";
+  }else  
+  {
+    cout << "Num is not prime";
+  }  
+  */ 
+  
+ /*
   
   int n;
   cout << "Enter the size of arr: ";
@@ -61,6 +106,7 @@ int main() {
   {
     cout << "Arr isn't monotonically increasing";
   }
+  */
   
   
   /* 1 exercises
