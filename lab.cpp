@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <ctime>
+#include <cstdlib>
+
 using namespace std;
 /*
 void MinMaxDigit(int n, int &MaxDigit, int &MinDigit){
@@ -55,6 +58,7 @@ bool isPrime(int n){
   return true;
 }
 */
+/*
 void func(double arr[], int n, int &NoOfLocMax, int &NoOfLocMin){
   NoOfLocMax = 0, NoOfLocMin = 0;
   for (int i = 1; i < n-1; i++)
@@ -63,17 +67,38 @@ void func(double arr[], int n, int &NoOfLocMax, int &NoOfLocMin){
     if (arr[i] < arr[i-1] && arr[i] < arr[i+1]) NoOfLocMin++;
   } 
 }
+*/
 
 int main() {
+  srand(time());
+  int number =rand() % 10;
+  int guess;
+  int isEven = number % 2 == 0;
+  cout << "Unesi 0 (paran) ili 1(neparan): ";
+  cin >> guess;
+  if (guess != 0 && guess != 1)
+  {
+    cout << "Los je unos \n";
+    return 0;
+  }
+  
+  if ((number % 2 == 0 && guess == 0) || (number % 2 != 0 && guess == 1)) {
+    cout << "Pogodak!" << endl;
+  }   else {
+    cout << "Promasaj!" << endl;
+  }
+  cout <<"Dobijeni broj: "<< number;
+  /*
   int max, min;
   double array[10];
    cout << "Enter 10 real numbers in arr: \n";
    for (int i = 0; i < 10; i++)
    {
      cin >> array[i];
-   }
-   func(array, 10, max,min);
-   cout << "Maximum: " << max << ", minimum: " << min;
+    }
+    func(array, 10, max,min);
+    cout << "Maximum: " << max << ", minimum: " << min;
+  */
 
   /*
   int n;
