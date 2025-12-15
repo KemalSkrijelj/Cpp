@@ -19,6 +19,8 @@ bool isPerfect(int x){
   else return false;
 }
 */
+
+/*
 void func(int n, int &MaxDigit, int &MinDigit){
   MaxDigit = 0;
   MinDigit = 9;
@@ -30,10 +32,141 @@ void func(int n, int &MaxDigit, int &MinDigit){
     if(digit > MaxDigit ) MaxDigit = digit;
     n /= 10;
   }
-  
+}
+*/
+bool isPrime(int x){
+  for (int i = 2; i < x; i++)
+  {
+    if(x % i == 0) return false;
+  }
+  return true;
 }
 
+int SumDIv(int x){
+  int sum = 0;
+  for (int i = 1; i < x; i++)
+  {
+    if(x % i == 0) sum += i;
+  }
+  return sum;
+}
+
+int sumOfDigit(int x){
+  int sum = 0;
+  while (x != 0)
+  {
+    int digit = x % 10;
+    sum += digit;
+    x /= 10;
+  }
+  return sum;
+}
+
+
+double Sum(int n, double x){
+  double sum = 0, sign = 1;  //sign je ovde brojilac
+  for (int i = 0; i <= n; i++)
+  {
+    double product = x;
+    for (int j = 1; j < i; j++) product *= (x+j);
+    sum += sign / product;
+    sign = -sign;
+  }
+  return sum;
+}
 int main(){
+  int n;
+  double x;
+  cout << "Enter n and x: ";
+  cin >> n >> x;
+  cout << "Sum is: " << Sum(n, x);
+
+  /*
+  int n;
+  cout << "Enter the num: ";
+  cin >> n;
+  cout << "Sum of digits is: " << sumOfDigit(n);
+  */
+
+  
+  /*
+  int h;
+  cout << "Enter the height: ";
+  cin >> h;
+  if (h < 3 || h > 20)
+  {
+    cout << "Invalid parametar";
+  }else{
+    for (int i = 1; i < h; i++)
+    {
+      for (int j = 1; j <= h-i; j++) cout << " ";
+      if(i != 1) cout << "#";
+      for (int j = 1; j < i-1; j++) cout << " ";
+      for (int j = 1; j <= i; j++) cout << "#";
+      cout << endl;
+    }
+    for (int i = 1; i < 2*h; i++) cout << "#";
+  }
+  */
+  
+
+  /*
+  int a, b;
+  cout << "Enter a and b: \n";
+  cin >> a >> b;
+  cout << "Numbers " << a << " and " << b;
+  if (SumDIv(a) == b && SumDIv(b) == a)
+  { 
+    cout << " are amicable!";
+  }else {
+    cout << "are not amicable!";
+  }
+  */
+  
+
+  /*
+  double num, product = 1;
+  int counter = 0;
+  cout << "Enter the nums(0 is break): ";
+  do
+  {
+    cin >> num;
+    if(num == 0) break;
+    product *= num;
+
+  } while (num != 0);
+  
+  cout << "Geometric mean is: " << pow(product, 1./counter);
+  */
+  
+
+  /*
+  int n;
+  cout << "Enter num: ";
+  cin >> n;
+  for (int i = 2; i < n-2; i++)
+  {
+    if (isPrime(i) && isPrime(i+2))
+    {
+      cout << "Twin prime: " << i << ", " << i+2<< endl;
+    }
+  }
+  */
+
+  
+  /*
+  int n;
+  cout << "Enter num: ";
+  cin >> n;
+  
+  for (int i = 2; i < n; i++)
+  {
+    if(n % i == 0 && isPrime(i)) cout << "Prime factor: " << i << endl;
+  }
+  */
+  
+
+  /*
   int h, w;
   cout << "Enter height: ";
   cin >> h;
@@ -56,12 +189,13 @@ int main(){
         for (int i = 1; i <= w-2*h-2+2*j; i++) cout << " ";
         cout << "+" << endl;
       }
-
+      
       //Down
       for (int i = 1; i <= w; i++) cout << "+";
       cout << endl;
-  }
-  
+    }
+  */
+    
   
   /*
   int minimum, maximum, number;

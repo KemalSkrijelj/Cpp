@@ -24,21 +24,33 @@ bool isTriangle(double a, double b, double c){
 */
 
 int main(){
-  int m, n;
-  cin >> m >> n;
-  for (int i = m; i <= n; i++)
+  int n;
+  cin >> n;
+  for (int i = 1; i <= n; i++)
   {
-    int count = 0;
-    for (int j = 2; j < i; j++)
-    {
-      if (i % j == 0){
-        count++;
-      }
-    }
-    if (count == 0){
-      cout << i << " ";
-    }
+    for (int j = 1; j <= i; j++) cout << " ";
+    for (int j = i; j < n; j++) cout << "*";
+    for (int j = i; j <= n; j++) cout << "*";
+    cout << endl;
   }
+  
+
+
+  // int m, n;
+  // cin >> m >> n;
+  // for (int i = m; i <= n; i++)
+  // {
+  //   int count = 0;
+  //   for (int j = 2; j < i; j++)
+  //   {
+  //     if (i % j == 0){
+  //       count++;
+  //     }
+  //   }
+  //   if (count == 0){
+  //     cout << i << " ";
+  //   }
+  // }
 
   /*
   int n;
