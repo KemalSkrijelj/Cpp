@@ -22,8 +22,79 @@ bool isTriangle(double a, double b, double c){
   return true;
 }
 */
+void MaxMinLocal(double arr[], int size, int &NoOfLocMax, int &NoOfLocMin){
+  NoOfLocMax = 0, NoOfLocMin = 0;
+  for (int i = 1; i < size; i++)
+  {
+    if (arr[i] > arr[i-1] && arr[i] > arr[i+1]) NoOfLocMax++;
+    if (arr[i] < arr[i-1] && arr[i] < arr[i+1]) NoOfLocMin++;
+  }
+}
+
+int maxDifference(double arr[], int size){
+  int maxDiff = 0;
+  for (int i = 1; i < size; i++)
+  {
+    if(arr[i] - arr[i-1] > maxDiff ) maxDiff = arr[i] - arr[i+1];
+  }
+  return maxDiff;
+}
+
+bool isMonotonically(double arr[], int size){
+  for (int i = 1; i < size; i++)
+  {
+    if (arr[i] < arr[i-1]) return false;
+  }
+  return true;
+}
 
 int main(){
+  int n;
+  cout << "Enter size of arr: ";
+  cin >> n;
+  double array[n];
+  cout << "Enter ell of arr: ";
+  for (int i = 0; i < n; i++)
+  {
+    cin >> array[i];
+  }
+  if (isMonotonically(array, n))
+  {
+    cout << "Array is monotonically increasing.";
+  }else
+  {
+    cout << "Array is not monotonically increasing.";
+  }
+  
+  /*
+  int n, maximalDifference;
+  cout << "Enter the size of arr: ";
+  cin >> n;
+  double arr[n];
+  cout << "Enter elements in arr: ";
+  for (int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+  maximalDifference = maxDifference(arr, n);
+  cout << "Maximal difference in this arr is: " << maximalDifference;
+  */
+
+  
+  /*
+  double array[10];
+  int localMax, localMin;
+  cout << "Enter 10 numbers in arr: ";
+  for (int i = 0; i < 10; i++)
+  {
+    cin >> array[i];
+  }
+  MaxMinLocal(array, 10, localMax, localMin);
+  cout << "Numbers of localMax: " << localMax << ", numbers of localMin: " << localMin;
+  */
+
+
+  /*
   int n;
   cin >> n;
   for (int i = 1; i <= n; i++)
@@ -33,7 +104,7 @@ int main(){
     for (int j = i; j <= n; j++) cout << "*";
     cout << endl;
   }
-  
+  */
 
 
   // int m, n;

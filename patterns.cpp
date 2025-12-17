@@ -13,6 +13,92 @@ cin >> h;
 if(h < 4 || h > 20 ){
   cout << "Invalid parametars!";
 }else{
+  int mid = h/2+1;
+
+  for (int i = 1; i <= h/2; i++) cout << " ";
+  cout << "*" << endl;
+
+  for (int i = 2; i <= mid; i++)
+  {
+    for (int j = 1; j <= mid - i; j++) cout << " ";
+    cout << "*";
+    for (int j = 1; j <= 2*(i-1)-1; j++) cout << " ";
+    cout << "*" << endl;
+  }
+
+  for (int i = mid-1; i >= 1; i--)
+  {
+    for (int j = 1; j <= mid-i; j++) cout << " ";
+    cout << "*";
+    if(i > 1){
+      for (int j = 1; j <= 2*(i-1)-1; j++) cout << " ";
+      cout << "*"<< endl;
+    }
+  }
+  
+}
+
+/*
+int h;
+cout << "Enter height: ";
+cin >> h;
+if(h < 4 || h > 20 ){
+  cout << "Invalid parametars!";
+}else{
+  for (int i = 1; i <= (h*2)-1; i++) cout << "*";
+  cout << endl;
+  for (int i = 2; i <= h-1; i++)
+  {
+    for (int j = 1; j <= i-1; j++) cout << " ";
+    for (int j = 1; j <= (h*2-1)-2*(i-1); j++) cout << "*";
+    cout << endl;
+  }
+  for (int i = 1; i <= h-1; i++) cout << " ";
+  cout << "*" << endl; 
+}
+*/
+
+
+/*
+int h;
+cout << "Enter height: ";
+cin >> h;
+if(h < 4 || h > 20 ){
+cout << "Invalid parametars!";
+}else{
+  
+for (int i = 1; i <= (h-1)/2; i++) cout << " ";
+cout << "*" << endl;
+
+for (int i = 2; i <= (h+1)/2; i++)
+{
+  for (int j = 1; j <= (h+1)/2 - i; j++) cout << " ";
+  cout << "*";
+  for (int j = 1; j <= 2*i-3; j++) cout << " ";
+  cout << "*" << endl;
+}
+
+for (int i = (h-1)/2; i >= 2; i--)
+{
+  for (int j = 1; j <= (h+1)/2 - i; j++) cout << " ";
+  cout << "*";
+  for (int j = 1; j <= 2*i-3; j++) cout << " ";
+  cout << "*" << endl;
+}
+
+for (int i = 1; i <= (h-1)/2; i++) cout << " ";
+cout << "*";
+}
+*/
+
+
+/*
+int h;
+cout << "Enter height: ";
+cin >> h;
+if(h < 4 || h > 20 ){
+  cout << "Invalid parametars!";
+}else{
   int mid = h/2;
 
   for (int i = 1; i < h; i++){
@@ -25,7 +111,7 @@ if(h < 4 || h > 20 ){
     }
     cout << endl;
   }
-
+  
   for (int i = h-2; i >= 1; i--)
   {
     for (int j = 1; j < h-i; j++) cout << " ";
@@ -37,6 +123,7 @@ if(h < 4 || h > 20 ){
     cout << endl;
   }
 }
+*/
 
 /*
   int h;
