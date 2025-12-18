@@ -7,17 +7,125 @@
 using namespace std;
 
 int main(){
-int h;
-cout << "Enter height: ";
-cin >> h;
-if(h < 4 || h > 20 ){
+  int h;
+  cout << "Enter height: \n";
+  cin >> h;
+  if(h < 3 || h > 20){
+    cout << "Invalid parametars!";
+  }else{
+    for (int i = 1; i <= (h*2)-1; i++) cout << "#";
+    cout << endl;
+
+    for (int i = 2; i <= h-1; i++)
+    {
+      for (int j = 1; j < i; j++) cout << " ";
+      cout << "#";
+      for (int j = 1; j < h-i; j++) cout << " ";
+      if(i > 1){
+        for (int j = h-i+1; j >= 1; j--) cout << "#";
+        cout << endl;
+      }
+    }
+    for (int i = 1; i <= h-1; i++) cout << " ";
+    cout << "#";
+    
+  }
+
+
+  /*
+  int n;
+  cout << "Enter height: \n";
+  cin >> n;
+  if(n < 4 || n > 20){
+    cout << "Invalid parametars!";
+  }else{
+    int mid = (n / 2)+1;
+    
+    for (int i = 1; i <= n/2; i++) cout << " ";
+    cout << "#" << endl;
+    
+    for (int i = 2; i <= mid; i++)
+    {
+      for (int j = 1; j <= mid-i; j++) cout << " ";
+      cout << "#";
+      for (int j = 1; j <= 2*(i-1)-1; j++) cout << " ";
+      cout << "#"<< endl;
+    }
+    
+    for (int i = mid-1; i >= 1; i--)
+    {
+      for (int j = 1; j <= mid-i; j++) cout << " ";
+      cout << "#";
+      if(i > 1){
+        for (int j = 1; j <= 2*(i-1)-1; j++) cout << " ";
+        cout << "#";
+      }
+      cout << endl;
+    }
+  }
+  */
+  
+
+  /*
+  int h;
+  cout << "Enter height: \n";
+  cin >> h;
+  if(h < 3 || h > 20){
+    cout << "Invalid parametars!";
+  }else{
+    for (int i = 1; i < h-1; i++) cout << " ";
+    cout << "#" << endl;
+    
+    for (int i = 2; i < h-1; i++)
+    {
+      for (int j = 1; j < h-i; j++) cout << " ";
+      cout << "#";
+      for (int j = 2; j < i; j++) cout << " ";
+      cout << "#" << endl;
+    }
+    
+    for (int i = 1; i <= h-1; i++) cout << "#";
+    cout << endl;
+    
+  }
+  */
+
+
+  /*
+  int h, w;
+  cout << "Enter height and width: ";
+  cin >> h >> w;
+  if(h < 4 || h > 20 || w < h || w > 79){
+    cout << "Invalid parametars!";
+  }else{
+    for (int i = 1; i <= w; i++) cout << "#";
+    cout << endl;
+    for (int i = 2; i <= h-1; i++)
+    {
+      for (int j = 1; j < i; j++) cout << " ";  
+      cout << "#";
+      for (int j = 1; j <= w-i-1 ; j++) cout << " ";
+      cout << "#" << endl;
+    }
+    for (int i = 1; i < h; i++) cout << " ";
+    for (int i = 1; i <= w-h+1; i++) cout << "#";
+    
+  }
+  */
+
+  
+  /*
+  int h;
+  cout << "Enter height: ";
+  cin >> h;
+  if(h < 4 || h > 20 ){
   cout << "Invalid parametars!";
 }else{
   int mid = h/2+1;
-
+  
   for (int i = 1; i <= h/2; i++) cout << " ";
   cout << "*" << endl;
-
+  
   for (int i = 2; i <= mid; i++)
   {
     for (int j = 1; j <= mid - i; j++) cout << " ";
@@ -25,7 +133,7 @@ if(h < 4 || h > 20 ){
     for (int j = 1; j <= 2*(i-1)-1; j++) cout << " ";
     cout << "*" << endl;
   }
-
+  
   for (int i = mid-1; i >= 1; i--)
   {
     for (int j = 1; j <= mid-i; j++) cout << " ";
@@ -37,6 +145,7 @@ if(h < 4 || h > 20 ){
   }
   
 }
+*/
 
 /*
 int h;
