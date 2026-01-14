@@ -68,7 +68,6 @@ void func(double arr[], int n, int &NoOfLocMax, int &NoOfLocMin){
   } 
 }
 */
-
 int main() {
   srand(time());
   int number =rand() % 10;
