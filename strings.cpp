@@ -24,7 +24,7 @@ int longestWordLength(string s){
   return max;
 }
 */
-
+/*
 bool isPalindromic(string s){
   string s1 = "";
   for (int i = 0; i < s.length(); i++){
@@ -35,8 +35,54 @@ bool isPalindromic(string s){
   }
   return true;  
 }
+*/
+int longestWordLength(string s){
+  int currentLength= 0, maxLength = 0;
+  for (int i = 0; i < s.length(); i++)
+  {
+    if(s.at(i) != ' '){
+      currentLength++;
+    }else{
+      if(currentLength > maxLength) maxLength = currentLength;
+      currentLength = 0;
+    }
+  }
+  if(currentLength > maxLength) maxLength = currentLength;
+  return maxLength;
+}
+
+bool isPalindromic(string s){
+  string s1 = "";
+  for (int i = 0; i < s.length(); i++)
+  {
+    if(isalpha(s[i])) s1 += s[i];
+  }
+  for (int i = 0; i < s.length() / 2; i++)
+  {
+    if(s1[i] != s1[s.length()-1-i]) return false;
+  }
+  return true;
+}
 
 int main(){
+  string sentence;
+  cout << "Enter the sentence: ";
+  getline(cin, sentence);
+
+  if(isPalindromic){
+    cout << "Sentence is palindroic";
+  }else{
+    cout << "Sentence isn't palindroic";
+  }
+
+  /*
+  string s;
+  cout << "Enter the string: ";
+  getline(cin, s);
+  cout << "Max word length is " << longestWordLength(s);
+  */
+
+  /*
   string s;
   getline(cin, s);
   if(isPalindromic){
@@ -44,6 +90,8 @@ int main(){
   }else{
     cout << "Sentence isn't palindromic";
   }
+  */
+
   /*
   string s = "aaa bbbbb cc";
   cout << "Lenght of longest word: " << longestWordLength(s);

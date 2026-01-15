@@ -2,21 +2,41 @@
 
 using namespace std;
 
-int sumOfEl(double matrics[5][5]){
+int sumOfEl(double matric[5][5]){
   int sum = 0;
   for (int i = 0; i < 5; i++)
   {
     for (int j = 0; j < 5; j++)
     {
-      sum += matrics[i][j];
+      sum += matric[i][j];
     }
   }
   return sum;
 }
-void enterMatric()
+
 int main(){
   double mat[5][5];
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      cin >> mat[i][j];
+    }
+  }
+  cout << "Display: " << endl;
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      cout << mat[i][j] << " ";
+    }
+    cout << endl;
+  }
+  cout << "Sum of el is " << sumOfEl(mat);
 
+  /*
+  double mat[5][5];
+  
   cout << "Enter el in matrics: ";
   for (int i = 0; i < 5; i++)
   {
@@ -35,7 +55,8 @@ int main(){
     cout << endl;
   }
   cout << "Sum of el in matrcis is " << sumOfEl(mat);
-
+  */
+  
   /*
   int n, m;
   int sumOfDiagonalEl = 0, sumSecondDiagonal = 0;
@@ -73,5 +94,5 @@ int main(){
   }
   cout << "Sum of second diagonal: " << sumSecondDiagonal; 
   */
-  return 0;
+ return 0;
 }
