@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+#include <string>
 using namespace std;
 
 bool isValidTriangle(double a, double b, double c){
@@ -66,10 +66,165 @@ int longestWordLength(string s){
   if(currentLength > maxLength) maxLength = currentLength;
   return maxLength;
 }
+int sumOfDigits(int x){
+  int sum = 0;
+  while (x != 0)
+  {
+    int digit = x % 10;
+    sum += digit;
+    x /= 10;
+  }
+  return sum;
+}
+
+double valueOfSum(int n, double x){
+  double sum = 0, sign = 1;
+  for (int i = 0; i <= n; i++)
+  {
+    double product = x;
+    for (int j = 1; j <= i; j++) product *= (x+j);
+    sum += sign / product;
+    sign = -sign; 
+  }
+  return sum; 
+} 
+void minMaxLocal(double arr[], int n, int &NoOfLocMax, int &NoOfLocMin){
+  NoOfLocMax = 0, NoOfLocMin = 0;
+  for (int i = 1; i < n-1; i++)
+  {
+    if(arr[i] > arr[i+1] && arr[i] > arr[i-1]) NoOfLocMax++;
+    if(arr[i] < arr[i+1] && arr[i] < arr[i-1]) NoOfLocMin++;
+  }
+  
+}
+double maxDifference(double arr[], int n){
+  double maxDiff = 0;
+  for (int i = 1; i < n; i++)
+  {
+    if(arr[i] - arr[i-1] > maxDiff) maxDiff = arr[i] - arr[i-1];
+  }
+  return maxDiff;
+}
+
+bool isPalindromic(string s){
+  string s1 = "";
+  for (int i = 0; i < s.length(); i++)
+  {
+    if(isalpha(s[i])) s1 += toupper(s[i]);
+  }
+  for (int i = 0; i < s.length()/2; i++)
+  {
+    if(s1[i] != s1[s.length() - 1 - i]) return false;
+  }
+  return true;
+}
+
 int main (){
+
+  string sentence;
+  getline(cin, sentence);
+  if(isPalindromic){
+    cout << "Sentence is palindromic";
+  }else{
+    cout << "Sentence isn't palindromic";
+  }
+  
+  /*
+  double arr[10];
+  for (int i = 0; i < 10; i++)
+  {
+    cin >> arr[i];
+  }
+  cout << "Max diff in arr is " << maxDifference(arr, 10);
+  */
+  
+  /*
+  double array[10];
+  int localMin, localMax;
+  for (int i = 0; i < 10; i++)
+  {
+    cin >> array[i];
+  }
+  minMaxLocal(array, 10, localMax, localMin);
+  cout << "There are " << localMax << " local maximums and " << localMin << " local minimums in the array." << endl;
+  */
+
+  /*
+  int n; 
+  double x;
+  cin >> n >> x;
+  cout << "Sum is " << valueOfSum(n, x);
+  */
+
+  /*
+  int n;
+  cin >> n;
+  cout << "Sum of digits of number " << n << " is " << sumOfDigits(n);
+  */
+
+  /*
+  int h;
+  cin >> h;
+  if(h < 3 || h > 20){
+    cout << "Invalid input";
+  }else{
+    for (int i = 0; i < h-1; i++) cout << " ";
+    cout << "#" << endl;
+    
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < h-i-1; j++) cout << " ";
+      cout << "#";
+      for (int j = 0; j < i-1; j++) cout << " ";
+      for (int j = 0; j < i+1; j++) cout << "#";
+      cout << endl;
+    }
+    
+    for (int i = 0; i < 2*h-1; i++) cout << "#";
+  }
+  */
+
+
+  /*
+  int a, b, sumOfDivA = 0, sumOfDivB = 0;
+  cin >> a >> b;
+  for (int i = 1; i < a; i++)
+  {
+    if(a % i == 0) sumOfDivA += i;
+  }
+  for (int i = 1; i < b; i++)
+  {
+    if(b % i == 0) sumOfDivB += i;
+  }
+  if(sumOfDivA == b && sumOfDivB == a){
+    cout << "Amicable numbers";
+  }else{
+    cout << "Non-Amicable numbers";
+  }
+  */
+  
+
+  /*
+  double n, sumOfProduct = 1;
+  int counter = 0;
+  while (n != 0)
+  {
+    cin >> n;
+    if(n != 0){
+      sumOfProduct *= n;
+      counter++;
+    }
+  }
+  cout << "Geometric mean is " << pow(sumOfProduct, 1. /counter);
+  */
+  
+
+  /*
   string s;
   getline(cin, s);
   cout << "Length of the longest word: " << longestWordLength(s) << endl;
+  */
+
   /*
   int arr[5];
   for (int i = 0; i < 5; i++)
