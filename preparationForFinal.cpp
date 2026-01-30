@@ -120,7 +120,55 @@ bool isPalindromic(string s){
 }
 
 int main (){
+  double mat[5][5];
+  int numOfNonZero = 0;
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      cin >> mat[i][j];
+    }
+  }
 
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      if (i > j)
+      {
+        if(mat[i][j] != 0) numOfNonZero++;
+      }
+    }
+  }
+  
+  cout << "Number of non zero elements below main diagonal is " << numOfNonZero << endl;
+  
+  for (int j = 0; j < 5; j++)
+  {
+    for (int i = 0; i < 4; i++)
+    {
+      for (int k = i+1; k < 5; k++)
+      {
+        if(mat[k][j] > mat[i][j]){ // donji veci od gornjeg
+          double temp = mat[i][j];
+          mat[i][j] = mat[k][j];
+          mat[k][j] = temp;
+        }
+      }
+    }
+  }
+  
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      cout << mat[i][j] << " ";
+    }
+    cout << endl;
+  }
+  
+
+  /*
   string sentence;
   getline(cin, sentence);
   if(isPalindromic){
@@ -128,6 +176,7 @@ int main (){
   }else{
     cout << "Sentence isn't palindromic";
   }
+  */
   
   /*
   double arr[10];
