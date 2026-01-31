@@ -33,7 +33,22 @@ int main(){
     cout << endl;
   }
   cout << "Sum of el is " << sumOfEl(mat);
-
+  
+  for (int j = 0; j < 5; j++)
+  {
+    for (int i = 0; i < 4; i++)
+    {
+      for (int k = i+1; k < 5; k++)
+      {
+        if(mat[k][j] > mat[i][j]){
+          int temp = mat[i][j];
+          mat[i][j] = mat[k][j];
+          mat[k][j] = temp;  
+        }
+      }
+    }
+  }
+  
   /*
   double mat[5][5];
   

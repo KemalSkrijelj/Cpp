@@ -34,12 +34,58 @@ void RotateLeft(int &p, int &q, int &r){
   int temp = p;
   p = q; q = r; r = temp;
 }
+
+void minMaxPrime(int n, int &minPrime, int &maxPrime){
+  minPrime = 9, maxPrime = 0;
+  for (int i = 2; i < n; i++)
+  {
+    if (n % i == 0 && isPrime(i))
+    {
+      if(i < minPrime) minPrime = i;
+      if(i > maxPrime) maxPrime = i;
+    }
+  }
+  
+}
 int main(){
+  int h;
+  cin >> h;
+  if(h < 1 || h > 20){
+    cout << "Invalid input!!";
+  }else{
+    for (int i = 0; i <= h-1; i++) cout << char('H' - i);
+    for (int i = 0; i < h-1; i++) cout << char('B' + i);
+    cout << endl;
+    
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < i; j++) cout << " ";
+      for (char c = 'H' - i; c >= 'A'; c--) cout << c;
+      for (char c = 'B'; c <= 'H'- i; c++) cout << c;
+
+      cout << endl;
+    }
+
+    for (int i = 0; i < h-1; i++) cout << " ";
+    cout << 'A';
+    
+  }
+  
+
+  /*
+  int n, min, max;
+  cin >> n;
+  minMaxPrime(n, min, max);
+  cout << "Num " << n << ", minPrime: " << min << ", maxPrime: " << max;
+  */
+
+  /*
   int p,q,r;
   cin >> p >> q >> r;
   cout << p <<" " << q << " " << r << endl;
   RotateLeft(p,q,r);
   cout << "After rotate: " << p << ", "<< q << ", " << r;
+  */
 
   /*
   int n;

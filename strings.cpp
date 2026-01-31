@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <cctype>
 using namespace std;
 
 /*
@@ -42,9 +42,11 @@ int longestWordLength(string s){
   {
     if(s.at(i) != ' '){
       currentLength++;
-    }else{
-      if(currentLength > maxLength) maxLength = currentLength;
-      currentLength = 0;
+    }else
+    {
+      if(currentLength > maxLength){
+        maxLength = currentLength;
+      }
     }
   }
   if(currentLength > maxLength) maxLength = currentLength;
@@ -63,17 +65,48 @@ bool isPalindromic(string s){
   }
   return true;
 }
+string toUpperFirstLetter(string s){
+  string result;
+  bool newWord = true;
+  
+  for (int i = 0; i < s.length(); i++)
+  {
+    char c = s[i];
 
+    if(isspace(c)){
+      newWord = true;
+      result += c;
+    }else{
+      if(newWord){
+        result +='(';
+        result += toupper(c);
+        result +=')';
+        newWord = false;
+      }else{
+        result += c;
+      }
+    }
+  }
+  
+  return result;
+}
 int main(){
+  string s;
+  getline(cin, s);
+  string newString = toUpperFirstLetter(s);
+  cout << "Old sentence is " <<  s << endl;
+  cout << "New sentence is " <<  newString;
+  /*
   string sentence;
   cout << "Enter the sentence: ";
   getline(cin, sentence);
-
+  
   if(isPalindromic){
     cout << "Sentence is palindroic";
   }else{
     cout << "Sentence isn't palindroic";
   }
+  */
 
   /*
   string s;
