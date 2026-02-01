@@ -5,8 +5,195 @@
 #include <cstdlib>
 
 using namespace std;
-
 int main(){
+  int h, w;
+  cin >> h >> w;
+  
+  if(h < 3 || h > 20 || w < h || w > 79){
+    cout << "Invalid input!!";
+  }else{
+    cout << "+";
+    for (int i = 0; i < h; i++) cout << "-";
+    cout << "+";
+    for (int i = 0; i < h-2; i++) cout << "-";
+    cout << "+" << endl;
+
+    for (int i = 1; i < h-1; i++)
+    {
+      cout << "|";
+      for (int j = 0; j < h; j++) cout << " ";
+      cout << "|";
+      for (int j = 0; j < h-i-2; j++) cout << " ";
+      cout << "/" << endl;
+    }
+    cout << "+";
+    for (int i = 0; i < h; i++) cout << "-";
+    cout << "+";
+    
+  }
+  
+  /*
+  int h;
+  cin >> h;
+  
+  if(h < 3 || h > 20){
+    cout << "Invalid input!!";
+  }else{
+    for (int i = 0; i < h-1; i++) cout << " ";
+    cout << "#" << endl;
+    
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < h-i-1; j++) cout << " ";
+      cout << "#";
+      for (int j = 0; j < i-1; j++) cout << " ";
+      for (int j = 0; j <= i; j++) cout << "#";
+      cout << endl;
+    }
+    
+    for (int i = 0; i < h*2-1; i++) cout << "#";
+  }
+  */
+
+  /*
+  int h;
+  cin >> h;
+  
+  if(h < 1 || h > 20){
+    cout << "Invalid input!!";
+  }else{
+    for (char c = 'e';  c >= 'a'; c--) cout << c;
+    for (char c = 'b';  c <= 'e'; c++) cout << c;
+    cout << endl;
+    
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < i; j++) cout << " ";
+      for (char c = 'e'- i; c >= 'a'; c--) cout << c;
+      for (char c = 'b'; c <= 'e'-i; c++) cout << c;
+      cout << endl;
+    }
+    for (int i = 0; i < h-1; i++) cout << " ";
+    cout << 'a';
+    
+  }
+  */
+
+  /*
+  int h;
+  cin >> h;
+  
+  if(h < 1 || h > 20){
+    cout << "Invalid input!!";
+  }else{
+    for (int i = 0; i < h; i++) cout << " ";
+    cout << 'A' << endl;
+    
+    for (int i = 1; i < h; i++)
+    {
+      for (int j = 0; j < h-i; j++) cout << " ";
+      for (char c = 'A'; c < 'A'+ i; c++) cout << c;
+      for (char c = 'A'+i; c >= 'A'; c--) cout << c;
+      cout << endl;
+    }
+  }
+  */
+  
+  /*
+  int h, w;
+  cin >> h >> w;
+  
+  if(h < 3 || h > 20 || w < 3 || w > 60){
+    cout << "Invalid input!!";
+  }else{
+    for (int i = 0; i < w; i++) cout << "*";
+    cout << endl;
+    
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < i; j++) cout << " ";
+      cout << "*";
+      for (int j = 0; j < w-2; j++) cout << " ";
+      cout << "*" << endl;
+    }
+    
+    for (int i = 0; i < h-1; i++) cout << " ";
+    for (int i = 0; i < w; i++) cout << "*";
+    
+  }
+  */
+
+  /*
+  int h, w;
+  cin >> h >> w;
+  
+  if(h < 3 || h > 20 || w < 2*h+3 || w > 70){
+    cout << "Invalid input!!";
+  }else {
+    for (int i = 0; i < h-1; i++) cout << " ";
+    for (int i = 0; i < h*2+1; i++) cout << "*";
+    cout << endl;
+    
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < h-i-1; j++) cout << " ";
+      cout << "*";
+      for (int j = 0; j < 2*h+2*i-1; j++) cout << " ";
+      cout << "*" << endl;
+    }
+    for (int i = 0; i < w; i++) cout << "*";
+  }
+  */
+
+  /*
+  int h, w;
+  cin >> h >> w;
+  
+  if(h < 3 || h > 20 || w < 2*h+3 || w > 70){
+    cout << "Invalid input!!";
+  }else {
+    
+  for (int i = 0; i < h; i++) cout << " ";
+  for (int i = 0; i < h*2; i++) cout << "*";
+  cout << endl;
+  
+  for (int i = 1; i < h; i++)
+  {
+    for (int j = 0; j < h-i; j++) cout << " ";
+    for (int j = 0; j < 2*h+2*i; j++) cout << "*";
+    cout << endl;
+  }
+  
+}
+*/
+
+  /*
+  int h;
+  cin >> h;
+  
+  if(h < 1 || h > 20){
+    cout << "Invalid input!!";
+  }else{
+    for (char c = 'H'; c > 'A'; c--) cout << c;
+    for (char c = 'A'; c <= 'H'; c++) cout << c;
+    cout << endl;
+
+    for (int i = 1; i < h-1; i++)
+    {
+      for (int j = 0; j < i; j++) cout << " ";
+      for (char c = 'H'- i; c >= 'A'; c--) cout << c;
+      for (char c = 'B'; c <= 'H' - i; c++) cout << c;
+      
+      cout << endl;
+    }
+    
+    for (int i = 0; i < h-1; i++) cout << " ";
+    cout << 'A';
+    
+  }
+  */
+  
+  /*
   int h;
   cout << "Enter height: \n";
   cin >> h;
@@ -15,7 +202,7 @@ int main(){
   }else{
     for (int i = 1; i <= (h*2)-1; i++) cout << "#";
     cout << endl;
-
+    
     for (int i = 2; i <= h-1; i++)
     {
       for (int j = 1; j < i; j++) cout << " ";
@@ -30,6 +217,7 @@ int main(){
     cout << "#";
     
   }
+  */
 
 
   /*

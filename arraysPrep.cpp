@@ -28,7 +28,33 @@ void sortArrAsceding(double arr[], int n){
   }
   
 }
+int numOfDiffElements(double arr[], int n){
+  int numOfDiff = 0;
+  for (int i = 0; i < n; i++)
+  {
+    bool exist = false;
+    for (int j = 0; j < i; j++)
+    {
+      if (arr[i] == arr[j]){
+        exist = true;
+        break;
+      }
+    }
+    if(!exist) numOfDiff++;
+  }
+  
+  return numOfDiff;
+}
 int main(){
+  double arr[10];
+  for (int i = 0; i < 10; i++)
+  {
+    cin >> arr[i];
+  }
+  int result = numOfDiffElements(arr, 10);
+  cout << "Num of nums " << result;
+  
+  /*
   double arr[10];
   for (int i = 0; i < 10; i++)
   {
@@ -39,6 +65,8 @@ int main(){
   {
     cout << arr[i] << ", ";
   }
+  */
+
   /*
   double array[10];
   for (int i = 0; i < 10; i++)
