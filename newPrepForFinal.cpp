@@ -3,6 +3,13 @@
 
 using namespace std;
 
+bool isPrime(int n){
+  for (int i = 2; i < n; i++)
+  {
+    if(n % i == 0) return false;
+  }
+  return true;
+}
 double f(int n, int k){
   double sum = 0, p = 1;
   if(k < 0) return -1;
@@ -12,14 +19,6 @@ double f(int n, int k){
     p *= n;
   }
   return sum;
-}
-
-bool isPrime(int n){
-  for (int i = 2; i < n; i++)
-  {
-    if(n % i == 0) return false;
-  }
-  return true;
 }
 
 int PrimePi(int n){
@@ -47,7 +46,26 @@ void minMaxPrime(int n, int &minPrime, int &maxPrime){
   }
   
 }
+bool isComposite(int n){
+  if(n > 1 && !isPrime(n)) return true;
+  else return false;
+}
 int main(){
+  int a, b;
+  cin >> a >> b;
+
+  bool isAvaible = false;
+  for (int i = a; i < b; i++)
+  {
+    if(isComposite(i)){
+      cout << i << " ";
+      isAvaible = true;
+    }
+  }
+
+  if(!isAvaible) cout << "Composite nums not availble!";
+  
+  /*
   int h;
   cin >> h;
   if(h < 1 || h > 20){
@@ -62,14 +80,15 @@ int main(){
       for (int j = 0; j < i; j++) cout << " ";
       for (char c = 'H' - i; c >= 'A'; c--) cout << c;
       for (char c = 'B'; c <= 'H'- i; c++) cout << c;
-
+      
       cout << endl;
     }
-
+    
     for (int i = 0; i < h-1; i++) cout << " ";
     cout << 'A';
     
   }
+  */
   
 
   /*

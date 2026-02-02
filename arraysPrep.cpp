@@ -32,17 +32,16 @@ int numOfDiffElements(double arr[], int n){
   int numOfDiff = 0;
   for (int i = 0; i < n; i++)
   {
-    bool exist = false;
+    bool alreadySeen = false;
     for (int j = 0; j < i; j++)
     {
-      if (arr[i] == arr[j]){
-        exist = true;
+      if(arr[i] == arr[j]){
+        alreadySeen = true;
         break;
       }
     }
-    if(!exist) numOfDiff++;
+    if(!alreadySeen) numOfDiff++;
   }
-  
   return numOfDiff;
 }
 int main(){

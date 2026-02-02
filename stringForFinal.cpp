@@ -32,7 +32,56 @@ bool isPalindromic(string s){
   return true;
 }
 
+int coutWords(string s){
+  int counter = 0;
+  bool inWord = false;
+
+  for (int i = 0; i < s.length(); i++)
+  {
+    if(s[i] != ' ' && !inWord){
+      counter++;
+      inWord = true;
+    }else{
+      if(s[i] == ' '){
+        inWord = false;
+      }
+    }
+  }
+  return counter;
+}
+
+string newString(string s){
+  string newStr = "";
+  bool inWord = false;
+  for (int i = 0; i < s.length(); i++)
+  {
+    if(s[i] != ' '){
+      newStr += s[i];
+      inWord = true;
+    }else{
+      if(inWord){
+        newStr += ' ';
+        inWord = false;
+      }
+    }
+  }
+  return newStr;
+}
 int main(){
+  string s;
+  getline(cin, s);
+  string updatedString = newString(s);
+  cout << updatedString;
+
+  /*
+  string s;
+  getline(cin, s);
+  int result = coutWords(s);
+  
+  cout << "Num of words in sentence is " << result;
+  */
+
+  /*
   string s;
   getline(cin, s);
   if(isPalindromic(s)){
@@ -40,6 +89,7 @@ int main(){
   }else{
     cout << "Sentence isn't palindromic!";
   }
+  */
 
   /*
   string s;
