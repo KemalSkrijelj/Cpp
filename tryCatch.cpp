@@ -47,8 +47,23 @@ void doSomething(int num){
   }
   
 }
+
+void multiple(int num1, int num2){
+  try{
+    if(num2 == 0){
+      throw invalid_argument("Errrroor, because second num is 0");
+    }else{
+      cout << num1 * num2;
+    }
+  }
+  catch(invalid_argument s){
+    cout << s.what();
+  }
+}
 int main(){
   connectToInternet(unknown);
   doSomething(3);
+  multiple(2, 0);
+
   return 0;
 }
