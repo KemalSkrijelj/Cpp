@@ -210,7 +210,28 @@ class Triangle{
     << "Right angled: " << boolalpha << isRightAngled()<< endl;
   }
 };
+
+class someClass{
+  static int number;
+  public:
+  string name = "Kemal";
+  int godine = 20;
+  void print(){
+    cout << name << " " << godine << endl;
+  }
+  friend void friendlyFunction(){}
+};
+
+int someClass::number = 0; // static vrijednosti dajemo van class
+void friendlyFunction(someClass obj){ // pristup podacima ide preko objekta kojeg napravimu kao atribut
+    cout << obj.name << " " << obj.godine << endl;
+}
+
 int main(){
+  someClass someObject;
+  friendlyFunction(someObject); // saljemo object
+
+  /* Triangle class
   try{
     Triangle triangle1(3,4,5);
     // triangle1.setTriangle(3,5,7);
@@ -229,6 +250,7 @@ int main(){
   }catch(exception &error){
     cout << error.what() << endl;
   }
+  */
 
   /* Bank acc users
   try
