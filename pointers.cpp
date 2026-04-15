@@ -38,16 +38,73 @@ void readConsonants(char *pointerOnArr, int size){
   }
 }
 
+void ReverseBlock(double *first, double *second){
+  double temp = *first;
+  *first = *second;
+  *second = temp;
+}
+
+
+int *Search(int *first, int *last, int num){
+  while (first != last)
+  {
+    if(*first == num) return first;
+    first++;
+  }
+  return last;
+}
 int main(){
+  int array[10] = {2,5,4,2,4,5,6,2,5,7};
+  int *p = Search(array, array+10, 6);
+  if(p == array+10) cout << "Not found!!";
+  else cout << "Founded num: " << *p << ", on position: " <<p-array +1;
+
+
+  /*
+  /////REverse a block
+  double a[10] = {1,2,3,4,5,6,7,8,9,10};
+  for (int i = 0; i < 10; i++)
+  {
+    cout << a[i] << " ";
+  }
+  ReverseBlock(a, a+9);
+  cout << "After reverse: " << endl;
+  for (int i = 0; i < 10; i++)
+  {
+    cout << a[i] << " ";
+  }
+  */
+
+  /*
+  //Sentence without first word!! with pointers* !!
+  char sentence[1000];
+  cout << "Enter sentence: ";
+  cin.getline(sentence, 1000);
+  char *p = sentence;
+  while (*p == ' ') p++;
+  while (*p != ' ' && *p != '\0') p++;
+  cout << "Sentence without first word: ";
+  while (*p == ' ') p++;
+  while (*p != '\0')
+  {
+    cout << *p;
+    p++;
+  }
+  */
+  
+
+  /*
   int n;
   cin >> n;   
-
+  
   char arr[n];
   for (int i = 0; i < n; i++)
   {
     cin >> arr[i];
   }
   readConsonants(arr, n);
+  */
+
   
   /*
   int arr[8] = {6,7,9,10,15,3,99, -21};
