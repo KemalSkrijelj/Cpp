@@ -56,8 +56,8 @@ int *Search(int *first, int *last, int num){
 int main(){
   int array[10] = {2,5,4,2,4,5,6,2,5,7};
   int *p = Search(array, array+10, 6);
-  if(p == array+10) cout << "Not found!!";
-  else cout << "Founded num: " << *p << ", on position: " <<p-array +1;
+  if(p == a+10) cout << "Not found!!";
+  else cout << "Found: " << *p << ", address: " << p;
 
 
   /*
