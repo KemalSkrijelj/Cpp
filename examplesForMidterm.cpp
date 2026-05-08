@@ -210,13 +210,77 @@ class Pyramid{
  }
 };
 
+class Circle{
+  double radius;
+  public:
+  Circle(){ radius = 1; }
+  Circle(double x){ Set(x); }
+  void Set(double x){
+    if(x <= 0){
+      throw domain_error("Bad input!");
+    }
+    radius = x;
+  }
+  double getRadius() const { return radius; }
+  double getArea() const { return M_PI * radius * radius; }
+  double getCircumference() const { return 2*M_PI * radius; }
+  void scaling(double factor){
+    Set(radius*factor);
+  }
+  void Display() const {
+    cout << 
+    "Radius: " << getRadius() << endl <<
+    "Area: " << getArea() << endl <<
+    "Circumference: " << getCircumference() << endl;
+  }
+};
+
+class Cylinder{
+  Circle base;
+  double height;
+  public:
+  Cylinder() : base(1), height(1) {}
+  Cylinder(double b, double h) : base(b)  { Set(b,h); }
+  void Set(double x, double y){
+    if(x <= 0 || y <= 0){
+      throw domain_error("Bad input!");
+    }
+    base.Set(x);  // or base(x), this we call construcotr and construcor have a function Set.
+    height = y;
+  }
+  double getRadiusBase() const { return base.getRadius(); }
+  double getHeight() const { return height; }
+  Circle getBase() const { return base; }
+  double getArea() const { return 2* base.getArea() + base.getCircumference() * height; }
+  double getVolume() const { return base.getArea() * height; }
+  void scaling(double factor1, double factor2){
+    Set(base.getRadius() * factor1, height * factor2);
+  }
+  void Display() const {
+    cout << 
+    "Radius base: " << getRadiusBase() << endl <<
+    "Height : " << getHeight() << endl <<
+    "Area: " << getArea() << endl <<
+    "Volume: " << getVolume() << endl;
+  }
+};
+
 
 int main(){
+  Circle c(3);  
+  c.Display();
+  Cylinder p(3,4);
+  p.Display();
+
+
+  /*
   Square s(6);
   Pyramid p(s,20);
   Square s2 = p.getBase();
   s2.Scaling(2);
   cout << s2.getSide();
+  */
+
   /*CLASS PYRAMID
 
   Square b(5);

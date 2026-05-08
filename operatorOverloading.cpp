@@ -32,8 +32,8 @@ ostream& operator<<(ostream& cout, Auto& obj){
 int main(){
   Auto a1(5);
   Auto a2(3);
-  Auto a3;
-  a3 = a1 +a2;
+  Auto a3; //ovo je moj this objekat
+  a3 = a1 +a2; // ovo je a1.operator+(a2), ovde je this a1, a a2 je objekat na kojem se to izvrsava
   cout << a3;
   return 0;
 }
