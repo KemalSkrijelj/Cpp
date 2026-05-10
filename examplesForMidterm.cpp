@@ -250,7 +250,7 @@ class Cylinder{
   }
   double getRadiusBase() const { return base.getRadius(); }
   double getHeight() const { return height; }
-  Circle getBase() const { return base; }
+  Circle getBase() const { return base; } // use all object from private because if we want to use in main, same as a getHeight function, type is Circle, because this is in main
   double getArea() const { return 2* base.getArea() + base.getCircumference() * height; }
   double getVolume() const { return base.getArea() * height; }
   void scaling(double factor1, double factor2){
