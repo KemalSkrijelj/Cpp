@@ -50,9 +50,9 @@ class Vector{
   double getX() const { return x; } 
   double getY() const { return y; } 
   double getZ() const { return z; }
-  Vector setX(double x1) { x = x1; return *this;}
-  Vector setY(double y1) { y = y1; return *this;}
-  Vector setZ(double z1) { z = z1; return *this;}
+  Vector &setX(double x1) { x = x1; return *this;} // We can do chaining
+  Vector &setY(double y1) { y = y1; return *this;} // We can do chaining
+  Vector &setZ(double z1) { z = z1; return *this;} // We can do chaining
   friend Vector operator+(const Vector& obj1, const Vector& obj2); // const and & are not strict, but it's okey to work with orginal not with objects
   Vector& operator+=(const Vector& v);   // must have & because we add on this element not on object
   friend Vector operator*(double p, const Vector& v); 
