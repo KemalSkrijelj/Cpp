@@ -188,7 +188,102 @@ class Brick : public Body{
   }
 };
 
+
+class Vehicles{
+  string type;
+  double mass;
+  public:
+  virtual ~Vehicles() {}
+  Vehicles(string t, double m):type(t) { Set(m); }
+  void Set(double m){
+    if(m <= 0) throw domain_error("Mass must be positive!");
+    mass = m;
+  }
+  string getType() const { return type; }
+  double getMass() const { return mass; }
+  virtual double getTotalMass() const = 0;
+  void DisplayBasicInfo() const {
+    cout << "type: " << type << endl <<
+    "mass: " << mass << endl <<
+    "totalMass: " << getTotalMass() << endl; 
+  }
+  virtual void Display() const {
+    DisplayBasicInfo();
+    cout << endl;
+  }
+};
+
+class Car : public Vehicles{
+  int numOfPassangers;
+  double massesOfPassangers[5];
+  public:
+  Car(double mass, int numOfPass, double arr[5]) : Vehicles("Car", mass) { Set(numOfPass, arr); }
+  
+  void Set(int num, double arr[]){
+    if(num < 0 || num > 5) throw domain_error("Num of passangers must be from 0 to 5");
+    numOfPassangers = num;
+
+    for (int i = 0; i < num; i++)
+    {
+      if(arr[i] <= 0) throw domain_error("Number in arr must be positive!");
+      massesOfPassangers[i] = arr[i];
+    }
+  }
+  double getTotalMass() const {
+    double sum = getMass();
+    for (int i = 0; i < numOfPassangers; i++)
+    {
+      sum += massesOfPassangers[i];
+    }
+    return sum;
+  }
+  void Display() const override {
+    DisplayBasicInfo();
+    cout << "num of pass: " << numOfPassangers << endl;
+    cout << endl;
+  }
+};
+
+class Truck : public Vehicles{
+  double massOfCargo;
+  public:
+  Truck(double mass, double massOfC) : Vehicles("Truck", mass) { Set(massOfC); }
+  void Set(double massOfC){
+    if(massOfC <= 0) throw domain_error("Mass of cargo must be positive!");
+    massOfCargo = massOfC;
+  }
+  double getTotalMass() const {
+    double sum = getMass() + massOfCargo;
+    return sum;
+  }
+  void Display() const override{
+    DisplayBasicInfo();
+    cout << "mass of cargo: " << massOfCargo;
+    cout << endl;
+  }
+};
+
 int main(){
+  Vehicles *vehicle[5];
+  double arr[5] = {1.2, 2.3, 3.1, 4.3, 2.1};
+  vehicle[0] = new Car(2.3, 4, arr);
+  vehicle[1] = new Truck(2.3, 2.3);
+  vehicle[2] = new Car(2.3, 4, arr);
+  vehicle[3] = new Truck(2.3, 1.7);
+  vehicle[4] = new Car(2.3, 4, arr);
+
+  for (int i = 0; i < 5; i++)
+  {
+    vehicle[i]->Display();
+    cout << " " << endl;
+  }
+  for (int i = 0; i < 5; i++)
+  {
+    delete vehicle[i];
+  }
+ 
+
+  /*BODY, BRICK AND BALL
   Body *bodies[5];
   bodies[0] = new Ball(3.2, 5.0); // we represent polymorphic because it can represent other types of objects, ex. (Ball, Brick...)
   bodies[1] = new Brick(1.1, 3.2, 1.6, 1.2); // brick je objekat, a pokazivac je Body
@@ -206,7 +301,7 @@ int main(){
   {
     delete bodies[i];
   }
-  
+  */
 
   /* GEOMETRIC BODY, SPHERE, CUBOID
   GeometricBody *body[5];
