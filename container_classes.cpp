@@ -288,29 +288,128 @@ class Dictionary{
   }
 };
 
+
+class City {
+  string name;
+  int inhabitans;
+public:
+  City() {}
+  City(string name1, int inh) { name = name1; inhabitans = inh; }
+  string GetName() const { return name; }
+  int GetInhabitans() const { return inhabitans; }
+};
+
+class Cities{
+  int maxNumOfCities, actualNum;
+  City *data;
+  public:
+  Cities(int capacity){
+    actualNum = 0;
+    maxNumOfCities = capacity;
+    data = new City[capacity];
+  }
+  ~Cities() { delete[] data; }
+
+  Cities(const Cities &c){
+    maxNumOfCities = c.maxNumOfCities;
+    actualNum = c.actualNum;
+    data = new City[c.maxNumOfCities];
+    for (int i = 0; i < maxNumOfCities; i++) data[i] = c.data[i];
+  }
+
+  Cities operator=(const Cities &c){
+    if(this != &c){
+      delete[] data;
+      maxNumOfCities = c.maxNumOfCities;
+      actualNum = c.actualNum;
+      data = new City[c.maxNumOfCities];
+      for (int i = 0; i < maxNumOfCities; i++) data[i] = c.data[i];
+    }
+    return *this;
+  }
+
+  void Register(string cityName, int inhabitans){
+    if(actualNum == maxNumOfCities) throw range_error("FULL");
+    for (int i = 0; i < actualNum; i++)
+    {
+      if (data[i].GetName() == cityName) throw domain_error("Already exist!");
+    }
+    
+    data[actualNum++] = City(cityName, inhabitans);
+  }
+
+  int DisplayInhabitans(string name){
+    for (int i = 0; i < actualNum; i++)
+    {
+      if(data[i].GetName() == name)  return data[i].GetInhabitans();
+    }
+    throw domain_error("Name not found");
+  }
+
+  int operator[](int enteredIndex){
+    if(enteredIndex > actualNum || enteredIndex < 0) throw range_error("This city not available!");
+    return data[enteredIndex-1].GetInhabitans();
+  }
+
+  void Sort(){
+    for (int i = 0; i < actualNum - 1; i++)
+    {
+      for (int j = i+1; j < actualNum; j++)
+      {
+        if(data[i].GetInhabitans() > data[j].GetInhabitans()){
+          City temp = data[i];
+          data[i] = data[j];
+          data[j] = temp;
+        }
+      }
+    }
+  }
+  void Display() const {
+    for (int i = 0; i < actualNum; i++) cout << data[i].GetName() << ", " << data[i].GetInhabitans() << "     ";
+    cout << endl;
+  }
+};
+
 int main(){
+
+  
+  Cities c(5);
+  c.Register("Novi Pazar", 120000); c.Register("Zenica", 80000); c.Register("Tuzla", 110000); c.Register("Sarajevo", 500000); c.Register("Bugojno", 20000);
+  c.Display();
+
+  cout << c.DisplayInhabitans("Novi Pazar") << endl;
+  cout << c[3] << endl; //operator[]
+
+  c.Sort();
+  cout << "After sorting: " << endl;
+  c.Display();
+
+  /*DICTIONARY
   Dictionary d(5);
   d.Register("Apple", "Jabuka"); d.Register("Orange", "Pomorandza"); d.Register("Strawberries", "Jagode"); d.Register("Pineapple", "Ananas");
   d.Display(); cout << endl;
-
+  
   d.Delete("Orange");
   cout << "After deleting: "; d.Display(); cout << endl;
-
+  
   Dictionary d2 = d;
   cout << "New object d2: ";
   d2.Display(); cout << endl;
-
+  
   Dictionary d3(3);
   d3.Register("Apple", "Jabuka"); d3.Register("Grapes", "Grozdje"); d3.Register("Strawberries", "Jagode");
   cout << "Object d3: "; d3.Display();
-
+  
   cout << "Object d3 catch the values from object d: "; d3 = d; d3.Display(); cout << endl;
-
+  
   cout << d2["Apple"] << endl; //citanje prijevoda na bosanski 
-
+  
   d["Apple"] = "Crvena Jabuka";
   cout << "After changing Apple on bosnian: "; d.Display(); cout << endl;
+  */
 
+
+  
   /* PAIRS FOR X AND Y
   Pairs p(5);
   p.Register(2,3); p.Register(2.8,3.6); p.Register(1.1,3.2); p.Register(2.1,3.2);  p.Register(2.9,3.4);
