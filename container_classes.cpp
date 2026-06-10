@@ -370,19 +370,105 @@ class Cities{
   }
 };
 
-int main(){
 
-  
+class Student {
+int index;
+string name;
+public:
+Student(int index, string name) : index(index), name(name) {}
+int GetIndex() const { return index; }
+string GetName() const { return name; }
+};
+
+class Students{
+  int maxNumOfStudents, actualNumOfStudents;
+  Student **data;
+  public:
+  Students(int capacity) {
+    maxNumOfStudents = capacity;
+    actualNumOfStudents = 0;
+    data = new Student*[capacity];
+  }
+  ~Students() {
+    for (int i = 0; i < actualNumOfStudents; i++) delete data[i];
+    delete[] data;
+   }
+  Students(const Students &s){
+    maxNumOfStudents = s.maxNumOfStudents;
+    actualNumOfStudents = s.actualNumOfStudents;
+    data = new Student*[s.maxNumOfStudents];
+    for (int i = 0; i < actualNumOfStudents; i++) data[i] = new Student(*s.data[i]);
+  }
+  Students& operator=(const Students &s){
+    if(&s != this){
+      for (int i = 0; i < actualNumOfStudents; i++) {
+          delete data[i];
+      }
+      delete[] data;
+      maxNumOfStudents = s.maxNumOfStudents;
+      actualNumOfStudents = s.actualNumOfStudents;
+      data = new Student*[s.maxNumOfStudents];
+      for (int i = 0; i < actualNumOfStudents; i++) data[i] = new Student(*s.data[i]);
+    }
+    return *this;
+  }
+  void Register(int index, string name){
+    if(actualNumOfStudents == maxNumOfStudents) throw range_error("FULL!");
+    for (int i = 0; i < actualNumOfStudents; i++){
+      if(index == data[i]->GetIndex()) throw domain_error("Index already exist!");
+    }
+    data[actualNumOfStudents++] = new Student(index, name);
+  }
+  void Sort(){
+    for (int i = 0; i < actualNumOfStudents - 1; i++)
+    {
+      for (int j = i + 1; j < actualNumOfStudents; j++)
+      {
+        if(data[i]->GetIndex() > data[j]->GetIndex()){
+          Student* temp = data[i];
+          data[i] = data[j];
+          data[j] = temp;
+        }
+      }
+    }
+  }
+
+  string operator[](int index) const {
+    for (int i = 0; i < actualNumOfStudents; i++)
+    {
+      if(index == data[i]->GetIndex()) return data[i]->GetName();
+    }
+    throw domain_error("Student with this index not exist!");
+  }
+  void Display() const {
+    for (int i = 0; i < actualNumOfStudents; i++) cout << data[i]->GetName() << ", " << data[i]->GetIndex() << endl;
+    cout << endl;
+  }
+};
+int main(){
+  Students s(3);
+  s.Register(101, "Adin"); s.Register(205, "Amar"); s.Register(150, "Amina");
+
+  s.Display();
+
+  cout << s[101] << endl;
+  s.Sort();
+  cout << "After sorting: " << endl;
+  s.Display();
+
+  /*CITIES
   Cities c(5);
   c.Register("Novi Pazar", 120000); c.Register("Zenica", 80000); c.Register("Tuzla", 110000); c.Register("Sarajevo", 500000); c.Register("Bugojno", 20000);
   c.Display();
-
+  
   cout << c.DisplayInhabitans("Novi Pazar") << endl;
   cout << c[3] << endl; //operator[]
-
+  
   c.Sort();
   cout << "After sorting: " << endl;
   c.Display();
+  */
+
 
   /*DICTIONARY
   Dictionary d(5);
