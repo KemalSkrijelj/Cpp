@@ -69,7 +69,7 @@ class OrderedPair{
   void setX(T1 valueX) { x = valueX; }
   void setY(T2 valueY) { y = valueY; }
   void Display() const {
-    cout << "("<< x << ", " << y << ")";
+    cout << "("<< x << ", " << y << ")" << ", ";
   }
 };
 
