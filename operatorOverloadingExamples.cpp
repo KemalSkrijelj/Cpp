@@ -500,7 +500,7 @@ class Date{
   void Set(int y, int m, int d){
     if (y < 1800) throw domain_error("Bad input year!");
     if (m < 1 || m > 12) throw domain_error("Bad input month!");
-    if (d < 1 || d > maxDayInMonth(y,m)) throw domain_error("Bad input month!");
+    if (d < 1 || d > maxDayInMonth(m, y)) throw domain_error("Bad input month!");
     year = y;
     month = m;
     day = d;
